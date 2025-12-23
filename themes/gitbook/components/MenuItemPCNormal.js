@@ -13,7 +13,15 @@ export const MenuItemPCNormal = props => {
     <SmartLink
       key={`${link.id}-${link.slug}`}
       title={link.name}
-      href={link.href}
+
+
+      /* 👇👇👇 === 核心修改在这里 (原第16行) === 👇👇👇 */
+      /* 逻辑：如果 link.href 等于 '/'，就跳转去主站；否则去它该去的地方 */
+      href={link.href === '/' ? 'https://www.xiaoweihome.cn' : link.href}
+      /* 👆👆👆 === 修改结束 === 👆👆👆 */
+
+
+
       className={
         'px-2 duration-300 text-sm justify-between dark:text-gray-300 cursor-pointer flex flex-nowrap items-center ' +
         (selected
